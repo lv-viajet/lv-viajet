@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>LV Viajet - Passagens em Promoção</title>
+  <link rel="icon" href="icon.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <img src="logo.png" alt="LV Viajet" class="logo">
+      <nav>
+        <button id="langToggle" class="lang-btn">EN</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <h1 data-pt="Encontre passagens aéreas em promoção" data-en="Find flight deals & promotions">Encontre passagens aéreas em promoção</h1>
+          <p data-pt="Compare preços, receba alertas e economize nas suas viagens com o LV Viajet."
+             data-en="Compare prices, get alerts and save on your travels with LV Viajet.">
+            Compare preços, receba alertas e economize nas suas viagens com o LV Viajet.
+          </p>
+          <div class="cta">
+            <a class="btn primary" href="#download" data-pt="Baixar o App" data-en="Download App">Baixar o App</a>
+            <a class="btn ghost" href="#features" data-pt="Como funciona" data-en="How it works">Como funciona</a>
+          </div>
+        </div>
+        <div class="hero-media">
+          <img src="splash.png" alt="LV Viajet splash" class="splash">
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="container features">
+      <h2 data-pt="Recursos principais" data-en="Key features">Recursos principais</h2>
+      <div class="grid">
+        <article>
+          <h3 data-pt="Alertas de preço" data-en="Price alerts">Alertas de preço</h3>
+          <p data-pt="Receba notificações quando o preço da passagem atingir seu objetivo." data-en="Get notified when fare hits your target.">Receba notificações quando o preço da passagem atingir seu objetivo.</p>
+        </article>
+        <article>
+          <h3 data-pt="Somente promoções" data-en="Promo-only filter">Somente promoções</h3>
+          <p data-pt="Filtre resultados para exibir apenas ofertas promocionais." data-en="Filter results to show promo-only offers.">Filtre resultados para exibir apenas ofertas promocionais.</p>
+        </article>
+        <article>
+          <h3 data-pt="Comparador rápido" data-en="Fast comparator">Comparador rápido</h3>
+          <p data-pt="Compare preços entre companhias e parceiros afiliados." data-en="Compare prices across airlines and affiliate partners.">Compare preços entre companhias e parceiros afiliados.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="download" class="container download">
+      <h2 data-pt="Baixe o LV Viajet" data-en="Download LV Viajet">Baixe o LV Viajet</h2>
+      <p data-pt="Disponível na Google Play e App Store. Em breve APK para testes." data-en="Available on Google Play and App Store. APK for testing coming soon.">Disponível na Google Play e App Store. Em breve APK para testes.</p>
+      <div class="store-buttons">
+        <a class="store-btn" href="#" aria-label="Google Play">Google Play</a>
+        <a class="store-btn" href="#" aria-label="App Store">App Store</a>
+      </div>
+      <p class="support">Suporte: <a href="mailto:lv.viajet@gmail.com">lv.viajet@gmail.com</a></p>
+    </section>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="links">
+          <a href="privacy.html" data-pt="Política de Privacidade" data-en="Privacy Policy">Política de Privacidade</a>
+          <a href="terms.html" data-pt="Termos de Uso" data-en="Terms of Use">Termos de Uso</a>
+        </div>
+        <div class="copyright">© 2025 LV Viajet</div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    const langBtn = document.getElementById('langToggle');
+    let lang = localStorage.getItem('lv_lang') || 'pt';
+    function setLang(l) {
+      lang = l;
+      localStorage.setItem('lv_lang', l);
+      document.documentElement.lang = (l === 'pt') ? 'pt-BR' : 'en';
+      document.querySelectorAll('[data-pt]').forEach(el => {
+        el.textContent = (l === 'pt') ? el.getAttribute('data-pt') : el.getAttribute('data-en');
+      });
+      langBtn.textContent = (l === 'pt') ? 'EN' : 'PT';
+    }
+    langBtn.addEventListener('click', () => setLang(lang === 'pt' ? 'en' : 'pt'));
+    setLang(lang);
+  </script>
+</body>
+</html>
